@@ -16,6 +16,7 @@ class Flashcard {
     this.containerElement.append(this.flashcardElement);
 
     this.flashcardElement.addEventListener('pointerup', this._flipCard);
+	
   }
 
   // Creates the DOM object representing a flashcard with the given
@@ -35,6 +36,10 @@ class Flashcard {
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('flashcard-box');
     cardContainer.classList.add('show-word');
+
+    cardContainer.addEventListener('pointerdown', begin);
+    cardContainer.addEventListener('pointermove', drag);
+    cardContainer.addEventListener('pointerup', end);
 
     const wordSide = document.createElement('div');
     wordSide.classList.add('flashcard');
